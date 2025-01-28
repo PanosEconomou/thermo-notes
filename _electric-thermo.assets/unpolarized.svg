@@ -1,0 +1,17 @@
+<svg width="287" height="255" viewBox="0 0 287 255" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M75.2573 156.571C75.2573 156.571 117.921 182.169 145.257 198.571" stroke="#333333" stroke-dasharray="2 2"/>
+<line x1="145.171" y1="198.314" x2="214.314" y2="156.829" stroke="#333333" stroke-linecap="round" stroke-dasharray="2 2"/>
+<line x1="75.5" y1="156.5" x2="214.5" y2="156.5" stroke="#333333" stroke-linecap="round" stroke-dasharray="2 2"/>
+<line x1="74.6005" y1="156.699" x2="144.601" y2="63.6993" stroke="#333333" stroke-dasharray="2 2"/>
+<line x1="145.399" y1="63.6993" x2="215.399" y2="156.699" stroke="#333333" stroke-dasharray="2 2"/>
+<line x1="77.461" y1="155.705" x2="140.705" y2="138.539" stroke="#555555" stroke-width="7" stroke-linecap="round"/>
+<line x1="210.705" y1="156.461" x2="147.461" y2="139.295" stroke="#555555" stroke-width="7" stroke-linecap="round"/>
+<line x1="144.5" y1="195.5" x2="144.5" y2="138.5" stroke="#555555" stroke-width="7" stroke-linecap="round"/>
+<line x1="144.5" y1="68.5" x2="144.5" y2="135.5" stroke="#555555" stroke-width="7" stroke-linecap="round"/>
+<circle cx="144.5" cy="137.5" r="11.5" fill="black"/>
+<line x1="144.5" y1="64" x2="144.5" y2="199" stroke="#333333" stroke-dasharray="2 2"/>
+<circle cx="215" cy="157" r="19" fill="#B1E7AC"/>
+<circle cx="145" cy="199" r="19" fill="#B1E7AC"/>
+<circle cx="145" cy="64" r="19" fill="#B1E7AC"/>
+<circle cx="75" cy="157" r="19" fill="#B1E7AC"/>
+</svg>
