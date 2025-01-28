@@ -16,9 +16,9 @@ Therefore when you place a material inside an electric field the charges will al
 
 **<u>Example:</u>** *(Some crystal)* Consider a molecule that is electrically neutral. One example can be this Carbon Tetrachloride thing. Here is how it looks when it remains untouched.
 
-|                       Unpolarized                       |                      Polarized                      |
-| :-----------------------------------------------------: | :-------------------------------------------------: |
-| ![Unpolarized](_electric-thermo.assets/unpolarized.svg) | ![Polarized](_electric-thermo.assets/polarized.svg) |
+|                         Unpolarized                          |                          Polarized                           |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![Unpolarized](https://raw.githubusercontent.com/PanosEconomou/thermo-notes/refs/heads/main/_electric-thermo.assets/unpolarized.svg) | ![Polarized](https://raw.githubusercontent.com/PanosEconomou/thermo-notes/refs/heads/main/_electric-thermo.assets/polarized.svg) |
 
 As you can see from my expert drawing, carbon tetrachloride is a pyramid that has a carbon (black circle) at the center, and 4 chlorine atoms on each side. When there is no external electric field, the molecule is unpolarized since each chlorine atom attracts each other exactly the same amount. When an external electric field $\vec{E}$ is added though, the chlorides move! This is eventually canceled by some induced electric field (the blue arrow). 
 
