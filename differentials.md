@@ -56,7 +56,7 @@ One of the most famous results in geometry is that **there is a 1-1 and onto map
 
 So here is our third super amazing result in dealing with describing small changes
 
-> A **small change** at a point **is** (completely described by) a **partial derivation at that point**.
+> A **small change at a point is** (completely described by) a **partial derivation at that point**.
 
 While I didn't prove to you this bijection, which is outside of the scope of thermodynamics, it is easy to see by playing around and considering all the possible tangent vectors and the possible derivatives one can take along a surface. 
 
@@ -64,7 +64,9 @@ While I didn't prove to you this bijection, which is outside of the scope of the
 
 We usually associate smallness to include derivatives in some way. Here we didn't assume that! Derivatives almost miraculously arose as a natural tool to classify all possible small changes. The good thing is that we know how to work with derivatives. Therefore we can port our intuition directly.
 
-# Small change of Something = Form
+Say that you want to quantify a collection of small changes in a region, then you can use a vector field! That vector field is such that at every point you evaluate the derivative at that point!
+
+# Small change in *Something* = Form
 
 This may still be unsatisfying. In fact if it isn't it should become. So far we talked about small changes and we found out that each one is perfectly modeled by the act of taking a partial derivative. However, we didn't mention anything about how to **measure small changes**.
 
@@ -82,7 +84,7 @@ In physics we usually represent any physical system as a point on some shape, an
 
 Let's examine this more carefully in the context of thermodynamics. 
 
-**<u>Definition:</u>** For us a **curve** or **thermodynamic phase space** $S$ is the zero set of some smooth function $f:\mathbb{R}^n \to \R$ called the **equation of state**. In other words
+**<u>Definition:</u>** For us a **curve** or **thermodynamic configuration space** $S$ is the zero set of some smooth function $f:\mathbb{R}^n \to \R$ called the **equation of state**. In other words
 $$
 S \coloneqq f^{-1}(0) = \{x \in \mathbb{R}^n \mid f(x) =0\}.
 $$
@@ -205,7 +207,7 @@ This $d$ is a much more powerful operator (as we will see soon) called the exter
 $$
 dh(X) = Xh.
 $$
- 
+
 
 This is enough to derive all the properties we are used to! More specifically, let's see how to calculate this for a general $X$. We have that
 $$
@@ -225,7 +227,7 @@ dh = \frac{\partial h}{\partial x^i}dx^i.
 $$
 And we have finally derived what we really mean by small changes. So here is a recap.
 
-> A **small change by itself** characterizes the motion of a point in a configuration space and is given by a vector field $X = X^i\frac{\partial}{\partial x^i}$. A **small change in a function $h$ resulting from a small change $X$** is the rate of change of $h$ along $X$ given by $dh(X) = Xh$. From there we obtain the notion of $dh$, the **differential of $h$** which is the map that takes in a small change $X$ and gives your the corresponding rate of change of $h$.
+> A **small change** *by itself* characterizes the motion of a point in a configuration space and is given by a vector field $X = X^i\frac{\partial}{\partial x^i}$. A **small change in a function $h$ resulting from a small change $X$** is the rate of change of $h$ along $X$ given by $dh(X) = Xh$. From there we obtain the notion of $dh$, the **differential of $h$** which is the map that takes in a small change $X$ and gives your the corresponding rate of change of $h$.
 
 As a result, the differential $dh$ encompasses the response of $h$ on all possible small changes, which is why we sometimes abuse our notation and forget all of this to think of it as a small change itself. But in reality it is a much more rich object.
 
@@ -233,15 +235,105 @@ As a result, the differential $dh$ encompasses the response of $h$ on all possib
 
 # From Small to Large Changes
 
+This is where things become more interesting. All this time we saw that while the amount of a small/infinitesimal change doesn’t matter, the rate and direction do. But what happens when we want to express large changes? We essentially want to add up these tiny changes along a path. This is integration of one-forms! And you already know about it. 
 
 
 
+## Integrating Small Changes
 
-# Conservative Change = Exact Form
+Let’s do this in practice! Say that we have some path $\gamma: [a,b] \to S$ on our configuration space, and a function $h$ that we want to measure. Then a small change in $h$ can be given by the one-form $dh$, and a large change can be given by
+$$
+\Delta h = \int_{\gamma} dh.
+$$
+How do you evaluate this integral? It’s the same integral that you encountered in calculus! Say that $S = \mathbb{R}^2$ and $\gamma(t) = (x(t),y(t))$ for some functions $x,y: [a,b] \to \mathbb{R}$. Then the integral becomes
+$$
+\Delta_{\gamma} h = \int_a^b d[h(x(t),y(t))]= \int_a^b \left(\frac{\partial h}{\partial x} \frac{dx}{dt} + \frac{\partial h}{\partial y} \frac{dy}{dt}\right) dt.
+$$
+It’s the same! And the rules of taking the differential we introduced before, work out to be what you expect.
 
 
 
+**<u>Example:</u>** *(Isothermal Transition)* Let’s go to our favorite example of the ideal gas. An isothermal process in the thermodynamic configuration space for the ideal gas, is a path $\gamma : [a,b] \to S$ such that $V(\gamma(t)) = V_0$ for some constant $V_0 > 0$. Let’s find the change in pressure under such a process.
 
+If we think of $S$ to be parameterized by $V,T$ then we have that pressure $P$ is a the function $P(V,T) = \frac{NkT}{V}$. Therefore the change in presure along the isothermal transition is given by 
+$$
+\begin{align*}
+\Delta_\gamma P = \int_{\gamma} dP = \int_{a}^b d(P(\gamma))= \int_a^b \frac{Nk}{V}dT(\gamma) + \cancelto{0}{\frac{\partial P}{\partial V} \frac{d V(\gamma)}{dt}} dt  = \frac{Nk}{V} \int_\gamma dT = \frac{Nk}{V} \Delta_\gamma T.
+\end{align*} 
+$$
+This is a very convoluted way of writing this, but it is the true order of the secret operations we sometimes perform during integration. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+
+The most important theorem in calculating these changes is the familiar Stoke’s theorem! Here it is in its true glory (for one-forms). Notice that the boundary of a line $\gamma : [a,b] \to S$ is the set of two points $\partial \gamma = \{\gamma(a),\gamma(b)\}$. 
+
+**<u>Theorem:</u>** *(Stoke’s Theorem)* Let $h:S\to \mathbb{R}$ be a smooth function, and $\gamma: [a,b] \to S$ be a smooth path. Then the following is true
+$$
+\int_\gamma dh = \int_{\partial \gamma} h = h(\gamma(b)) - h(\gamma(a)).
+$$
+The reason for writing it like this is because it generalizes suuuper nicely as we will see soon. 
+
+
+
+## Exact vs Inexact Small Changes
+
+All of this was just recasting Calc-III things in an arguably more complicated notation. When will this notation finally be useful? 
+
+Our current notation has introduced forms to be these linear maps of vector fields. But all the examples we have seen are differentials of functions, i.e. things like $df$ and $dx^{i}$. But one might notice that in $\mathbb{R}^2$ the following is still a linear map of vector fields
+$$
+\omega = ydx.
+$$
+This is not an unusual object! In fact we integrate things like this all the time. The interesting part though is that this can’t be written as $d(\text{something})$. 
+
+Yet, casting our intuition, this obbject, still describes a small change of something, even if that something is not a function on our space. While this might look weird there is a very common example of this that we have encountered before. Work!
+
+**<u>Example:</u>** We usually call the infinitesimal change in work $\delta W = - P dV$. This is a perfectly valid one form, however, without any extra conditions (i.e. that $P = \frac{d F}{d V}$ for some function $F$ which almost never true) is is not possible to write $\delta W = dh$ for some function $h$ on the thermodynamic phase space. 
+
+We call such a form **inexact**. In fact here is a definition.
+
+**<u>Definition:</u>** An **exact one-form** $\omega$ (sometimes also known as exact differnetial or exact quantity) is a form such that $\omega = df$ for some smooth function $f$. If no such function exists, the one-form is known as **inexact**.
+
+You might might be comfortable with referring to an inexact form as a small change of something other than a function. But what is that something? To find that out let’s integrate an inexact and an exact form along a path. 
+
+**<u>Example:</u>** *(Exact vs Inexact)* Consider the following paths $\alpha,\beta: [0,1] \to \mathbb{R}^2$ given by
+$$
+\begin{align*}
+\alpha(t)&= (t,0)\\
+\beta(t) &= \left(t,\frac{1 - |2t-1|}{2}\right).
+\end{align*}
+$$
+And the two forms $\omega = dx$ and $\eta = ydx$. One is exact, the other one inexact. Here is what happens when we integrate them along the paths. 
+
+|  Integrals of $\omega$  |        Integrals of $\eta$        |
+| :---------------------: | :-------------------------------: |
+| $ \int_{\alpha} dx = 1$ |     $ \int_{\alpha} ydx = 0$      |
+| $ \int_{\beta} dx = 1$  | $ \int_{\beta} ydx = \frac{1}{4}$ |
+
+Try to work out these integrals yourself to make sure you understand the mechanics of this. What you notice is that the integral of $\omega$ was intdependent of path, while the integral of $\eta$ was dependent on the path. Notice that both of these paths though had the same endpoints!
+
+
+
+This is the interesting result. If the small change of something is given by an exact form, then the large change along the path only depends on the endpoints of the path, and not how we got there. On the other hand, if a small change of something is given by an inexact form, then the large change along a path depends on the path itself! This makes sense because in the inexact case the quantity we are interested can never be merely a scalar function of the configuration space.  Here is this tied up in a neat proposition.
+
+**<u>Proposition:</u>** Given a one-form $\omega$ then it is inexact if and only if there exist two paths $\alpha, \beta : [a,b] \to S$ with the same endpoints (i.e. $\alpha(a) = \beta(a),\ \alpha(b) = \beta(b)$) such that
+$$
+\int_\alpha \omega \neq \int_\beta \omega.
+$$
+*(It is a nice exercise to prove this, but if you’re interested in a sleek way, you might want to look up general $k$-forms.)*
+
+**<u>Example:</u>** *(Work)* One of the most famous inexact forms in thermodynamics is **work**. For an ideal gas, this is defined as $\delta W = - PdV$, where $P,V : S \to \mathbb{R}$ are the pressure and volume, and $S$ is the thermodynamic configuration space. 
+
+We have seen the path dependance of this time and time again. For example, an adiabatic process, which is any path $\alpha:[a,b] \to S$ such that $P(\alpha(t)) V(\alpha(t))^{\gamma} =K$ where $K,\gamma>0$ are constants for all $t \in [a,b]$ (we usually say instead $PV^\gamma = K$ making the path reference implicit because it is freaking cumbersome to write down), has a different work from an Isothermal process which we defined in a previous example. 
+
+
+
+> **<u>Problem:</u>** *(Muscles)* You can measure the force a muscle exerts using a spring or a piston connected to an ideal gas, or any number of things. Now say that you want to study the thermodynamics of the muscle. What is a description of the work done **by** the muscle in terms of the quantities you can measure? Is your work $\delta W$ exact or inexact? Say you measure the temperature $T$ of the muscle, the corss sectional area $A$ and the force on the spring $F$ and you find that
+> $$
+> FA^2 = CT,
+> $$
+> for some constant $C > 0$. Can you find how the work $\delta W$ depends on the other quantities here? Is it exact? What are the different kinds of thermodynamic processes you can perform between the same endpoints and obtain different work overall? 
 
 
 
