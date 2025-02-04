@@ -253,23 +253,23 @@ It’s the same! And the rules of taking the differential we introduced before, 
 
 
 
-**<u>Example:</u>** *(Isothermal Transition)* Let’s go to our favorite example of the ideal gas. An isothermal process in the thermodynamic configuration space for the ideal gas, is a path $\gamma : [a,b] \to S$ such that $V(\gamma(t)) = V_0$ for some constant $V_0 > 0$. Let’s find the change in pressure under such a process.
+**<u>Example:</u>** *(Isothermal Transition)* Let’s go to our favorite example of the ideal gas. An isothermal process in the thermodynamic configuration space for the ideal gas, is a path $\gamma : [a,b] \to S$ such that $V(\gamma(t)) = V_0$ for some constant $V_0 > 0$. This implies $dV(\gamma) = dV_0 = 0$ Let’s find the change in pressure under such a process.
 
 If we think of $S$ to be parameterized by $V,T$ then we have that pressure $P$ is a the function $P(V,T) = \frac{NkT}{V}$. Therefore the change in presure along the isothermal transition is given by 
 $$
 \begin{align*}
-\Delta_\gamma P = \int_{\gamma} dP = \int_{a}^b d(P(\gamma))= \int_a^b \frac{Nk}{V}dT(\gamma) + \cancelto{0}{\frac{\partial P}{\partial V} \frac{d V(\gamma)}{dt}} dt  = \frac{Nk}{V} \int_\gamma dT = \frac{Nk}{V} \Delta_\gamma T.
-\end{align*} 
+\Delta_\gamma P = \int_{\gamma} dP = \int_{a}^b d(P(\gamma))= \int_a^b \frac{Nk}{V}dT(\gamma) + \int_{a}^{b}\frac{\partial P}{\partial V} \cancelto{0}{dV(\gamma)}  = \frac{Nk}{V} \int_\gamma dT = \frac{Nk}{V} \Delta_\gamma T.
+\end{align*}
 $$
 This is a very convoluted way of writing this, but it is the true order of the secret operations we sometimes perform during integration. 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 
-The most important theorem in calculating these changes is the familiar Stoke’s theorem! Here it is in its true glory (for one-forms). Notice that the boundary of a line $\gamma : [a,b] \to S$ is the set of two points $\partial \gamma = \{\gamma(a),\gamma(b)\}$. 
+The most important theorem in calculating these changes is the familiar Stokes’ theorem! Here it is in its true glory (for one-forms). Notice that the boundary of a line $\gamma : [a,b] \to S$ is the set of two points $\partial \gamma = \{\gamma(a),\gamma(b)\}$. 
 
-**<u>Theorem:</u>** *(Stoke’s Theorem)* Let $h:S\to \mathbb{R}$ be a smooth function, and $\gamma: [a,b] \to S$ be a smooth path. Then the following is true
+**<u>Theorem:</u>** *(Stokes' Theorem)* Let $h:S\to \mathbb{R}$ be a smooth function, and $\gamma: [a,b] \to S$ be a smooth path. Then the following is true
 $$
 \int_\gamma dh = \int_{\partial \gamma} h = h(\gamma(b)) - h(\gamma(a)).
 $$
@@ -293,7 +293,7 @@ Yet, casting our intuition, this obbject, still describes a small change of some
 
 We call such a form **inexact**. In fact here is a definition.
 
-**<u>Definition:</u>** An **exact one-form** $\omega$ (sometimes also known as exact differnetial or exact quantity) is a form such that $\omega = df$ for some smooth function $f$. If no such function exists, the one-form is known as **inexact**.
+**<u>Definition:</u>** An **exact one-form** $\omega$ (sometimes also known as exact differential or exact quantity) is a form such that $\omega = df$ for some smooth function $f$. If no such function exists, the one-form is known as **inexact**.
 
 You might might be comfortable with referring to an inexact form as a small change of something other than a function. But what is that something? To find that out let’s integrate an inexact and an exact form along a path. 
 
@@ -311,7 +311,7 @@ And the two forms $\omega = dx$ and $\eta = ydx$. One is exact, the other one in
 | $ \int_{\alpha} dx = 1$ |     $ \int_{\alpha} ydx = 0$      |
 | $ \int_{\beta} dx = 1$  | $ \int_{\beta} ydx = \frac{1}{4}$ |
 
-Try to work out these integrals yourself to make sure you understand the mechanics of this. What you notice is that the integral of $\omega$ was intdependent of path, while the integral of $\eta$ was dependent on the path. Notice that both of these paths though had the same endpoints!
+Try to work out these integrals yourself to make sure you understand the mechanics of this. What you notice is that the integral of $\omega$ was independent of path, while the integral of $\eta$ was dependent on the path. Notice that both of these paths though had the same endpoints!
 
 
 
@@ -325,11 +325,11 @@ $$
 
 **<u>Example:</u>** *(Work)* One of the most famous inexact forms in thermodynamics is **work**. For an ideal gas, this is defined as $\delta W = - PdV$, where $P,V : S \to \mathbb{R}$ are the pressure and volume, and $S$ is the thermodynamic configuration space. 
 
-We have seen the path dependance of this time and time again. For example, an adiabatic process, which is any path $\alpha:[a,b] \to S$ such that $P(\alpha(t)) V(\alpha(t))^{\gamma} =K$ where $K,\gamma>0$ are constants for all $t \in [a,b]$ (we usually say instead $PV^\gamma = K$ making the path reference implicit because it is freaking cumbersome to write down), has a different work from an Isothermal process which we defined in a previous example. 
+We have seen the path dependence of this time and time again. For example, an adiabatic process, which is any path $\alpha:[a,b] \to S$ such that $P(\alpha(t)) V(\alpha(t))^{\gamma} =K$ where $K,\gamma>0$ are constants for all $t \in [a,b]$ (we usually say instead $PV^\gamma = K$ making the path reference implicit because it is freaking cumbersome to write down), has a different work from an Isothermal process which we defined in a previous example. 
 
 
 
-> **<u>Problem:</u>** *(Muscles)* You can measure the force a muscle exerts using a spring or a piston connected to an ideal gas, or any number of things. Now say that you want to study the thermodynamics of the muscle. What is a description of the work done **by** the muscle in terms of the quantities you can measure? Is your work $\delta W$ exact or inexact? Say you measure the temperature $T$ of the muscle, the corss sectional area $A$ and the force on the spring $F$ and you find that
+> **<u>Problem:</u>** *(Muscles)* You can measure the force a muscle exerts using a spring or a piston connected to an ideal gas, or any number of things. Now say that you want to study the thermodynamics of the muscle. What is a description of the work done **by** the muscle in terms of the quantities you can measure? Is your work $\delta W$ exact or inexact? Say you measure the temperature $T$ of the muscle, the cross sectional area $A$ and the force on the spring $F$ and you find that
 > $$
 > FA^2 = CT,
 > $$
