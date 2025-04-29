@@ -34,7 +34,17 @@ Think about it, you only need to know how your system acquires energy at differe
 
 > But I hear you say: **So what? We have a function, and? How does that give us where the system will be in the future?**   
 
-This leads to the third, most powerful, yet at the same time most underrepresented 
+This leads to the third, most powerful, yet at the same time most underrepresented piece of the phase space. **A way to a function, like a Hamiltonian, and convert it to a flow over the space**.
+
+
+
+
+
+# Equipartition Theorem
+
+
+
+## The Probability Distribution
 
 
 
